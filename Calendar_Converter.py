@@ -10,7 +10,6 @@ if not D == "NONE" and len(D) == 10:
     int(D[0:2])
     int(D[3:5])
     int(D[6:10])
-
     print(f"Processing {D[0:2]}/{D[3:5]}/{D[6:10]} {x}...")
     D2 = int(D[0:2])
     M2 = int(D[3:5])

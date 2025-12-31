@@ -1,6 +1,6 @@
-#Ephrem Adise
-#UGR/0035/26
-#Section-01
+# Ephrem Adise
+# UGR/0035/26
+# Section 01
 def calculate_average(total_sum, count):
     if count == 0:
         return 0
@@ -19,21 +19,28 @@ def body():
     budget = float(input("Enter your total monthly budget: "))
     total_grades = 0
     count = 0
-    print("\nEnter grades one by one (type 'done' to finish):")
+    subjects = {}
+    print("\nEnter your Subject name then your result one by one (type 'done' to finish):")
     while True:
-        grade_input = input("Grade: ").lower()
-        if grade_input == "done":
+        subject = input("Subject: ").lower()
+        grade_input = float(input(f"Enter your score for {subject}"))
+        if subject == "done":
             break
         grade = float(grade_input)
+        subjects[subject] = grade_input
         total_grades += grade
         count += 1
+    return subjects, count, total_grades
     average = calculate_average(total_grades, count)
     status = evaluate_performance(average)
     celebration_cost = float(input("\nCelebration meal cost: "))
     affordable = can_afford(budget, celebration_cost)
+    subjects, count, total_grades = main()
     print("\nSummary Report")
     print("Student Name:", name)
     print("Total number of Subjects:", count)
+    for subject, grade_input in subjects.items():
+        print(subject, " : ", grade_input)
     print("Final Average:", average)
     print("Performance Status:", status)
     if affordable:
